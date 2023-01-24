@@ -48,7 +48,7 @@ function setupCards() {
     },
     {
       name: "hotdog",
-      img: "/images/hotdog.png",
+      img: "./images/hotdog.png",
     },
     {
       name: "ice-cream",
@@ -56,7 +56,7 @@ function setupCards() {
     },
     {
       name: "milkshake",
-      img: "/images/milkshake.png",
+      img: "./images/milkshake.png",
     },
     {
       name: "pizza",
