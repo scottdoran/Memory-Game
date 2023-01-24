@@ -16,35 +16,35 @@ function setupCards() {
   cardArray = [
     {
       name: "fries",
-      img: "/images/fries.png",
+      img: "./images/fries.png",
     },
     {
       name: "cheeseburger",
-      img: "/images/cheeseburger.png",
+      img: "./images/cheeseburger.png",
     },
     {
       name: "hotdog",
-      img: "/images/hotdog.png",
+      img: "./images/hotdog.png",
     },
     {
       name: "ice-cream",
-      img: "/images/ice-cream.png",
+      img: "./images/ice-cream.png",
     },
     {
       name: "milkshake",
-      img: "/images/milkshake.png",
+      img: "./images/milkshake.png",
     },
     {
       name: "pizza",
-      img: "/images/pizza.png",
+      img: "./images/pizza.png",
     },
     {
       name: "fries",
-      img: "/images/fries.png",
+      img: "./images/fries.png",
     },
     {
       name: "cheeseburger",
-      img: "/images/cheeseburger.png",
+      img: "./images/cheeseburger.png",
     },
     {
       name: "hotdog",
@@ -52,7 +52,7 @@ function setupCards() {
     },
     {
       name: "ice-cream",
-      img: "/images/ice-cream.png",
+      img: "./images/ice-cream.png",
     },
     {
       name: "milkshake",
@@ -60,7 +60,7 @@ function setupCards() {
     },
     {
       name: "pizza",
-      img: "/images/pizza.png",
+      img: "./images/pizza.png",
     },
   ];
   cardArray.sort(() => 0.5 - Math.random());
