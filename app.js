@@ -3,10 +3,16 @@ const gridDisplay = document.querySelector("#grid");
 const resultDisplay = document.querySelector("#result");
 const infoDisplay = document.querySelector("#info");
 const resetButton = document.querySelector("#resetBtn");
+const attempts = document.querySelector("#attempts");
 resetButton.addEventListener("click", resetBoard);
 let cardsChosen = [];
 let cardsChosenIds = [];
 let cardsWon = [];
+let noOfAttempts = 0;
+
+const coinsSorted = new Audio("./sounds/CoinsSorted.wav")
+const golfClap = new Audio("./sounds/GolfClap.wav")
+const bell = new Audio("./sounds/bell.wav")
 
 function setupCards() {
   cardArray = [];
@@ -15,52 +21,52 @@ function setupCards() {
   cardsWon = [];
   cardArray = [
     {
-      name: "fries",
-      img: "./images/fries.png",
+      name: "betty",
+      img: "./images/betty.jpg",
     },
     {
-      name: "cheeseburger",
-      img: "./images/cheeseburger.png",
+      name: "tag",
+      img: "./images/tag.png",
     },
     {
-      name: "hotdog",
-      img: "./images/hotdog.png",
+      name: "norrie",
+      img: "./images/norrie.png",
     },
     {
-      name: "ice-cream",
-      img: "./images/ice-cream.png",
+      name: "roly",
+      img: "./images/roly.png",
     },
     {
-      name: "milkshake",
-      img: "./images/milkshake.png",
+      name: "happy",
+      img: "./images/happy.png",
     },
     {
-      name: "pizza",
-      img: "./images/pizza.png",
+      name: "duggee",
+      img: "./images/duggee.png",
     },
     {
-      name: "fries",
-      img: "./images/fries.png",
+      name: "betty",
+      img: "./images/betty.jpg",
     },
     {
-      name: "cheeseburger",
-      img: "./images/cheeseburger.png",
+      name: "tag",
+      img: "./images/tag.png",
     },
     {
-      name: "hotdog",
-      img: "./images/hotdog.png",
+      name: "norrie",
+      img: "./images/norrie.png",
     },
     {
-      name: "ice-cream",
-      img: "./images/ice-cream.png",
+      name: "roly",
+      img: "./images/roly.png",
     },
     {
-      name: "milkshake",
-      img: "./images/milkshake.png",
+      name: "happy",
+      img: "./images/happy.png",
     },
     {
-      name: "pizza",
-      img: "./images/pizza.png",
+      name: "duggee",
+      img: "./images/duggee.png",
     },
   ];
   cardArray.sort(() => 0.5 - Math.random());
@@ -82,49 +88,77 @@ setupCards();
 
 function checkMatch() {
   const cards = document.querySelectorAll("#grid img");
+
   const optionOneId = cardsChosenIds[0];
   const optionTwoId = cardsChosenIds[1];
 
   if (optionOneId == optionTwoId) {
     cards[optionOneId].setAttribute("src", "images/blank.png");
     cards[optionTwoId].setAttribute("src", "images/blank.png");
-    infoDisplay.innerHTML = "You have clicked the same image!";
   }
 
   if (cardsChosen[0] == cardsChosen[1]) {
+    bell.play()
     infoDisplay.style.color = "green";
     infoDisplay.innerHTML = "You found a match!";
-    setTimeout(clearInfoDisplay, 5000);
+    setTimeout(clearInfoDisplay, 3000);
 
     cards[optionOneId].setAttribute("src", "images/white.png");
     cards[optionTwoId].setAttribute("src", "images/white.png");
     cards[optionOneId].removeEventListener("click", flipCard);
     cards[optionTwoId].removeEventListener("click", flipCard);
+    cards[optionOneId].classList.remove('card')
+    cards[optionTwoId].classList.remove('card')
+    cards[optionOneId].classList.add("card-chosen")
+    cards[optionTwoId].classList.add("card-chosen")
     cardsWon.push(cardsChosen);
   } else {
     cards[optionOneId].setAttribute("src", "images/blank.png");
     cards[optionTwoId].setAttribute("src", "images/blank.png");
-    infoDisplay.style.color = "darkred";
-    infoDisplay.innerHTML = "Sorry, try again!";
-    setTimeout(clearInfoDisplay, 5000);
+    infoDisplay.style.color = "yellow";
+    infoDisplay.innerHTML = "Try again!";
+    setTimeout(clearInfoDisplay, 3000);
   }
+
+  const cards2 = document.querySelectorAll(".card");
+  addEventListenerList(cards2, 'click', flipCard)
+
   resultDisplay.innerHTML = cardsWon.length;
   cardsChosen = [];
   cardsChosenIds = [];
 
   if (cardsWon.length == cardArray.length / 2) {
+    golfClap.play()
     infoDisplay.style.color = "green";
     infoDisplay.innerHTML = "Congratulations, you found them all!";
   }
 }
 
 function flipCard() {
+  coinsSorted.play();
+  this.removeEventListener('click', flipCard)
+  const cards = document.querySelectorAll("#grid img");
   const cardId = this.getAttribute("data-id");
   cardsChosen.push(cardArray[cardId].name);
   cardsChosenIds.push(cardId);
   this.setAttribute("src", cardArray[cardId].img);
-  if (cardsChosen.length == 2) {
+  if (cardsChosen.length === 2) {
+    removeEventListenerList(cards, 'click', flipCard)
     setTimeout(checkMatch, 1000);
+    noOfAttempts++;
+    attempts.innerHTML = noOfAttempts;
+  }
+}
+
+function removeEventListenerList(list, event, fn) {
+  for (var i = 0, len = list.length; i < len; i++) {
+    list[i].removeEventListener(event, fn, false);
+  }
+}
+
+function addEventListenerList(list, event, fn) {
+  for (var i = 0, len = list.length; i < len; i++) {
+    list[i].addEventListener(event, fn, false);
   }
 }
 
@@ -134,6 +168,8 @@ function clearInfoDisplay() {
 
 function resetBoard() {
   resultDisplay.innerHTML = "";
+  noOfAttempts = 0;
+  attempts.innerHTML = "";
 
   let element = document.getElementById("grid");
   while (element.firstChild) {

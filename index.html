@@ -2,20 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Memory Game</title>
+    <title>Hey Duggee Memory Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h3>Score: <span id="result">0</span></h3>
-    <h3>Status: <span id="info"></span></h3>
-
-    <div id="grid"></div>
-    <br />
-
-    <div>
-      <button id="resetBtn">Reset</button>
+    <div class="container">
+      <img class="title-logo" src="./images/Hey_Duggee_Logo.png" />
+      <h1 id="title-text">Memory Game</h1>
+      <div id="grid"></div>
+      <div class="info-area">
+        <button id="resetBtn">Start Again</button>
+        <h3 id="result-label">Matches: <span id="result">0</span></h3>
+        <h3 id="attempts-label">Attempts: <span id="attempts">0</span></h3>
+      </div>
+      <h3 id="info"></h3>
     </div>
-
     <script src="app.js"></script>
   </body>
 </html>

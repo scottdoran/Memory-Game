@@ -1,28 +1,88 @@
 body {
-    font-family: sans-serif;
-    background-color: lightgrey;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    width: 500px;
+  font-family: sans-serif;
+  background-color: rgb(148, 212, 255);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-left: 50px;
 }
 
+.title-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+#title-text {
+  display: flex;
+  justify-content: center;
+  color: yellow;
+  font-weight: 700;
+  margin-bottom: 40px;
+  font-family: "Bangers", cursive;
+  font-size: 40px;
+  letter-spacing: 5px;
+}
 
 #grid {
-    width: 500px;
-    height: 300px;
-    display: flex;
-    flex-wrap: wrap;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  height: 400px;
+  flex-wrap: wrap;
 }
 
 .card {
-    border:groove 3px black; 
+  border: 5px solid white;
+  background-color: lightgreen;
+  border-radius: 7px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  width: 100px;
+  height: 140px;
+  cursor: pointer;
+}
+
+.card-chosen {
+  border: 5px solid black;
+  border-radius: 7px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  width: 100px;
+  height: 140px;
+}
+
+.info-area {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  margin-left: auto;
 }
 
 #resetBtn {
-    background-color: darkblue;
-    color: #fff;
-    padding: 8px;
-    border-radius: 5px;
-    margin-top: 10px;
+  background-color: rgb(247, 251, 7);
+  color: orangered;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#result-label {
+  margin-left: 50px;
+  width: 20%;
+  color: darkslategrey;
+}
+
+#attempts-label {
+  width: 300px;
+  color: darkslategrey;
+}
+
+#info {
+  display: flex;
+  justify-content: center;
 }
