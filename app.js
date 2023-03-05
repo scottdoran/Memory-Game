@@ -10,8 +10,8 @@ let cardsChosenIds = [];
 let cardsWon = [];
 let noOfAttempts = 0;
 
-const coinsSorted = new Audio("./sounds/CoinsSorted.wav")
-const golfClap = new Audio("./sounds/GolfClap.wav")
+const coinsSorted = new Audio("./sounds/coinsSorted.wav")
+const golfClap = new Audio("./sounds/golfClap.wav")
 const bell = new Audio("./sounds/bell.wav")
 
 function setupCards() {
