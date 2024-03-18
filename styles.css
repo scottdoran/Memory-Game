@@ -69,6 +69,18 @@ body {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 3px 3px red;
+}
+
+#switchCardSetBtn {
+  background-color: lightblue;
+  color: black;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px darkblue;
 }
 
 #result-label {

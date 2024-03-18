@@ -1,10 +1,114 @@
 let cardArray = [];
+let cardArrayDuggie = [
+
+    {
+      name: "betty",
+      img: "./images/betty.jpg",
+    },
+    {
+      name: "tag",
+      img: "./images/tag.png",
+    },
+    {
+      name: "norrie",
+      img: "./images/norrie.png",
+    },
+    {
+      name: "roly",
+      img: "./images/roly.png",
+    },
+    {
+      name: "happy",
+      img: "./images/happy.png",
+    },
+    {
+      name: "duggee",
+      img: "./images/duggee.png",
+    },
+    {
+      name: "betty",
+      img: "./images/betty.jpg",
+    },
+    {
+      name: "tag",
+      img: "./images/tag.png",
+    },
+    {
+      name: "norrie",
+      img: "./images/norrie.png",
+    },
+    {
+      name: "roly",
+      img: "./images/roly.png",
+    },
+    {
+      name: "happy",
+      img: "./images/happy.png",
+    },
+    {
+      name: "duggee",
+      img: "./images/duggee.png",
+    },
+];
+let cardArrayFrozen = [
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+    {
+      name: "elsa",
+      img: "./images/elsa.jpg",
+    },
+];
 const gridDisplay = document.querySelector("#grid");
 const resultDisplay = document.querySelector("#result");
 const infoDisplay = document.querySelector("#info");
 const resetButton = document.querySelector("#resetBtn");
 const attempts = document.querySelector("#attempts");
+const switchCardSetButton = document.querySelector("#switchCardSetBtn");
 resetButton.addEventListener("click", resetBoard);
+switchCardSetButton.addEventListener("click", switchCards);
+
 let cardsChosen = [];
 let cardsChosenIds = [];
 let cardsWon = [];
@@ -14,61 +118,19 @@ const coinsSorted = new Audio("./sounds/coinsSortedSound.wav")
 const golfClap = new Audio("./sounds/golfClapSound.wav")
 const bell = new Audio("./sounds/bellSound.wav")
 
+function switchCards() {
+	cardArray = cardArrayFrozen;    
+	infoDisplay.style.color = "Dark Blue";
+    infoDisplay.innerHTML = "Card Set Changed!";
+    setTimeout(clearInfoDisplay, 3000);
+}
+
 function setupCards() {
   cardArray = [];
   cardsChosen = [];
   cardsChosenIds = [];
   cardsWon = [];
-  cardArray = [
-    {
-      name: "betty",
-      img: "./images/betty.jpg",
-    },
-    {
-      name: "tag",
-      img: "./images/tag.png",
-    },
-    {
-      name: "norrie",
-      img: "./images/norrie.png",
-    },
-    {
-      name: "roly",
-      img: "./images/roly.png",
-    },
-    {
-      name: "happy",
-      img: "./images/happy.png",
-    },
-    {
-      name: "duggee",
-      img: "./images/duggee.png",
-    },
-    {
-      name: "betty",
-      img: "./images/betty.jpg",
-    },
-    {
-      name: "tag",
-      img: "./images/tag.png",
-    },
-    {
-      name: "norrie",
-      img: "./images/norrie.png",
-    },
-    {
-      name: "roly",
-      img: "./images/roly.png",
-    },
-    {
-      name: "happy",
-      img: "./images/happy.png",
-    },
-    {
-      name: "duggee",
-      img: "./images/duggee.png",
-    },
-  ];
+  cardArray = cardArrayDuggie;
   cardArray.sort(() => 0.5 - Math.random());
   createBoard();
 }
