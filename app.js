@@ -177,7 +177,7 @@ function checkMatch() {
   } else {
     cards[optionOneId].setAttribute("src", "images/blank.png");
     cards[optionTwoId].setAttribute("src", "images/blank.png");
-    infoDisplay.style.color = "yellow";
+    infoDisplay.style.color = "darkorange";
     infoDisplay.innerHTML = "Try again!";
     setTimeout(clearInfoDisplay, 3000);
   }
@@ -225,10 +225,11 @@ function addEventListenerList(list, event, fn) {
 }
 
 function clearInfoDisplay() {
-  infoDisplay.innerHTML = "";
+	infoDisplay.style.color = "black";
+	infoDisplay.innerHTML = "";
 }
 
-function resetBoard() {
+function resetBoard() {	
   resultDisplay.innerHTML = "";
   noOfAttempts = 0;
   attempts.innerHTML = "";

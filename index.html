@@ -11,19 +11,19 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="container">
-      <img class="title-logo" src="./images/Hey_Duggee_Logo.png" />
+  <header>      
+	<img class="title-logo" src="./images/Hey_Duggee_Logo.png" />
       <h1 id="title-text">Memory Game</h1>
+  </header>
+  <body>
       <div id="grid"></div>
       <div class="info-area">
         <button id="resetBtn">Start Again</button>		
         <h3 id="result-label">Matches: <span id="result">0</span></h3>
         <h3 id="attempts-label">Attempts: <span id="attempts">0</span></h3>
-		<button id="switchCardSetBtn">Switch To Frozen</button>
+		<a id="switchCardSetBtn">Switch To Frozen</a>
       </div>
       <h3 id="info"></h3>
-    </div>
     <script src="app.js"></script>
   </body>
 </html>
