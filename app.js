@@ -101,9 +101,9 @@ let cardArrayFrozen = [
     },
 ];
 const gridDisplay = document.querySelector("#grid");
-const resultDisplay = document.querySelector("#result");
 const infoDisplay = document.querySelector("#info");
 const resetButton = document.querySelector("#resetBtn");
+const resultDisplay = document.querySelector("#result");
 const attempts = document.querySelector("#attempts");
 const switchCardSetButton = document.querySelector("#switchCardSetBtn");
 resetButton.addEventListener("click", resetBoard);
@@ -193,6 +193,7 @@ function checkMatch() {
     golfClap.play()
     infoDisplay.style.color = "green";
     infoDisplay.innerHTML = "Congratulations, you found them all!";
+	setTimeout(clearInfoDisplay, 10000);
   }
 }
 
@@ -229,10 +230,10 @@ function clearInfoDisplay() {
 	infoDisplay.innerHTML = "";
 }
 
-function resetBoard() {	
-  resultDisplay.innerHTML = "";
+function resetBoard() {
   noOfAttempts = 0;
-  attempts.innerHTML = "";
+  resultDisplay.innerHTML = 0;  
+  attempts.innerHTML = 0;
 
   let element = document.getElementById("grid");
   while (element.firstChild) {
