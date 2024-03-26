@@ -15,7 +15,7 @@ body {
 }
 
 .title-logo {
-  padding-top: 3%;
+  padding-top: 2%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -24,6 +24,7 @@ body {
 
 #title-text {
   display: flex;
+  padding-top: 2%;
   justify-content: center;
   color: yellow;
   font-weight: 700;
@@ -33,10 +34,63 @@ body {
   letter-spacing: 5px;
 }
 
-#grid {
-  padding-top: 50px;
-  padding-left: 60px;
+.cardSelectionArea {
+  padding-top: 60px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.hideCardSelectionArea {
+  display: none;
+}
+
+#useFrozenCardsBtn {
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+  color: white;
+  padding: 20px 10px 20px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px darkblue;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 40px;
+  border: 1px solid black;
+}
+
+#useDuggeeCardsBtn {
+  background-image: linear-gradient(to right, #ca4e4e 0%, #c7bb0f 51%, #d5d6a9 100%);
+  color: white;
+  padding: 20px 10px 20px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px darkblue;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 40px;
+  border: 1px solid black;
+}
+
+#useFrozenCardsBtn:hover {
+  background-image: linear-gradient(blue, lightblue);
+}
+
+#useDuggeeCardsBtn:hover {
+  background-image: linear-gradient(blue, lightblue);
+}
+
+.grid {
+  display: none;  
+}
+
+.grid2 {
   display: block;  
+  padding-top: 50px;
+  padding-left: 60px;  
   margin-left: auto;
   margin-right: auto;
   width: 53%;
@@ -68,11 +122,16 @@ body {
   height: 140px;
 }
 
+
 .info-area {
+  display: none;
+}
+
+.info-area-display {
   display: flex;
   justify-content: space-between;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 #resetBtn {
@@ -96,34 +155,22 @@ body {
   color: white;
 }
 
-#switchCardSetBtn {
-  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
-  color: white;
-  padding: 20px 10px 20px 10px;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 3px 3px darkblue;
-  text-align: center;
-  text-transform: uppercase;
-  margin: 40px;
-  border: 1px solid black;
-}
-
-#switchCardSetBtn:hover {
-  background-image: linear-gradient(blue, lightblue);
-}
-
-
 #result-label {
-  color: darkslategrey;
-  margin: 60px 40px 60px 40px;
+  color: rgb(223, 94, 9);
+  display:inline-block;
+  font-size: 40px;
+  font-family: "Bangers", cursive;
+  letter-spacing: 2px;
+  margin: 60px 10px 60px 10px;
 }
 
 #attempts-label {
-  color: darkslategrey;
-  margin: 60px 40px 60px 40px;
+  color: rgb(223, 94, 9);
+  display:inline-block;
+  font-size: 40px;
+  font-family: "Bangers", cursive;
+  letter-spacing: 2px;
+  margin: 60px 10px 60px 10px;
 }
 
 #info {

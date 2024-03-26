@@ -1,5 +1,5 @@
 let cardArray = [];
-let cardArrayDuggie = [
+let cardArrayDuggee = [
 
     {
       name: "betty",
@@ -56,58 +56,65 @@ let cardArrayFrozen = [
       img: "./images/elsa.jpg",
     },
     {
-      name: "elsa",
-      img: "./images/elsa.jpg",
+      name: "anna",
+      img: "./images/anna.jpg",
+    },
+    {
+      name: "olaf",
+      img: "./images/olaf.jpg",
+    },
+    {
+      name: "sven",
+      img: "./images/sven.jpg",
+    },
+    {
+      name: "kristoff",
+      img: "./images/kristoff.jpg",
+    },
+    {
+      name: "troll",
+      img: "./images/troll.jpg",
     },
     {
       name: "elsa",
       img: "./images/elsa.jpg",
     },
     {
-      name: "elsa",
-      img: "./images/elsa.jpg",
+      name: "anna",
+      img: "./images/anna.jpg",
     },
     {
-      name: "elsa",
-      img: "./images/elsa.jpg",
+      name: "olaf",
+      img: "./images/olaf.jpg",
     },
     {
-      name: "elsa",
-      img: "./images/elsa.jpg",
+      name: "sven",
+      img: "./images/sven.jpg",
     },
     {
-      name: "elsa",
-      img: "./images/elsa.jpg",
+      name: "kristoff",
+      img: "./images/kristoff.jpg",
     },
     {
-      name: "elsa",
-      img: "./images/elsa.jpg",
-    },
-    {
-      name: "elsa",
-      img: "./images/elsa.jpg",
-    },
-    {
-      name: "elsa",
-      img: "./images/elsa.jpg",
-    },
-    {
-      name: "elsa",
-      img: "./images/elsa.jpg",
-    },
-    {
-      name: "elsa",
-      img: "./images/elsa.jpg",
+      name: "troll",
+      img: "./images/troll.jpg",
     },
 ];
-const gridDisplay = document.querySelector("#grid");
+
+const cardSelectionArea = document.querySelector(".cardSelectionArea");
+const useFrozenCardsBtn = document.querySelector("#useFrozenCardsBtn");
+const useDuggeeCardsBtn = document.querySelector("#useDuggeeCardsBtn");
+const gridDisplay = document.querySelector(".grid");
+const infoArea = document.querySelector(".info-area");
 const infoDisplay = document.querySelector("#info");
 const resetButton = document.querySelector("#resetBtn");
 const resultDisplay = document.querySelector("#result");
 const attempts = document.querySelector("#attempts");
-const switchCardSetButton = document.querySelector("#switchCardSetBtn");
+
 resetButton.addEventListener("click", resetBoard);
-switchCardSetButton.addEventListener("click", switchCards);
+useFrozenCardsBtn.addEventListener("click", selectFrozenCards);
+useDuggeeCardsBtn.addEventListener("click", selectDuggeeCards);
+
 
 let cardsChosen = [];
 let cardsChosenIds = [];
@@ -118,19 +125,29 @@ const coinsSorted = new Audio("./sounds/coinsSortedSound.wav")
 const golfClap = new Audio("./sounds/golfClapSound.wav")
 const bell = new Audio("./sounds/bellSound.wav")
 
-function switchCards() {
-	cardArray = cardArrayFrozen;    
-	infoDisplay.style.color = "Dark Blue";
-    infoDisplay.innerHTML = "Card Set Changed!";
-    setTimeout(clearInfoDisplay, 3000);
+function selectFrozenCards() {
+  cardArray = cardArrayFrozen;
+  gridDisplay.classList.remove("grid");
+  gridDisplay.classList.add("grid2");
+  cardSelectionArea.classList.remove("cardSelectionArea");
+  cardSelectionArea.classList.add("hideCardSelectionArea");
+  infoArea.classList.remove("info-area");
+  infoArea.classList.add("info-area-display");
+  setupCards();
+}
+
+function selectDuggeeCards() {
+  cardArray = cardArrayDuggee;
+  gridDisplay.classList.remove("grid");
+  gridDisplay.classList.add("grid2");
+  cardSelectionArea.classList.remove("cardSelectionArea");
+  cardSelectionArea.classList.add("hideCardSelectionArea");
+  infoArea.classList.remove("info-area");
+  infoArea.classList.add("info-area-display");
+  setupCards();
 }
 
 function setupCards() {
-  cardArray = [];
-  cardsChosen = [];
-  cardsChosenIds = [];
-  cardsWon = [];
-  cardArray = cardArrayDuggie;
   cardArray.sort(() => 0.5 - Math.random());
   createBoard();
 }
@@ -146,10 +163,8 @@ function createBoard() {
   }
 }
 
-setupCards();
-
 function checkMatch() {
-  const cards = document.querySelectorAll("#grid img");
+  const cards = document.querySelectorAll(".grid2 img");
 
   const optionOneId = cardsChosenIds[0];
   const optionTwoId = cardsChosenIds[1];
@@ -200,7 +215,7 @@ function checkMatch() {
 function flipCard() {
   coinsSorted.play();
   this.removeEventListener('click', flipCard)
-  const cards = document.querySelectorAll("#grid img");
+  const cards = document.querySelectorAll(".grid2 img");
   const cardId = this.getAttribute("data-id");
   cardsChosen.push(cardArray[cardId].name);
   cardsChosenIds.push(cardId);
@@ -231,14 +246,19 @@ function clearInfoDisplay() {
 }
 
 function resetBoard() {
-  noOfAttempts = 0;
-  resultDisplay.innerHTML = 0;  
-  attempts.innerHTML = 0;
+  // cardArray = [];
+  // cardsChosen = [];
+  // cardsChosenIds = [];
+  // cardsWon = [];
+  // noOfAttempts = 0;
+  // resultDisplay.innerHTML = 0;  
+  // attempts.innerHTML = 0;
 
-  let element = document.getElementById("grid");
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
+  // let element = document.getElementById("grid");
+  // while (element.firstChild) {
+  //   element.removeChild(element.firstChild);
+  // }
 
-  setupCards();
+  // setupCards();
+  location.reload();
 }
