@@ -5,13 +5,8 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Bangers", cursive;
   background-color: rgb(148, 212, 255);
-  /* background-color: white; */
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  /* margin-left: 50px; */
 }
 
 .title-logo {
@@ -29,7 +24,6 @@ body {
   color: yellow;
   font-weight: 700;
   margin-bottom: 20px;
-  font-family: "Bangers", cursive;
   font-size: 40px;
   letter-spacing: 5px;
 }
@@ -52,6 +46,7 @@ body {
   border-radius: 10px;
   font-size: 20px;
   font-weight: bold;
+  letter-spacing: 3px;
   cursor: pointer;
   box-shadow: 3px 3px darkblue;
   text-align: center;
@@ -67,6 +62,7 @@ body {
   border-radius: 10px;
   font-size: 20px;
   font-weight: bold;
+  letter-spacing: 3px;
   cursor: pointer;
   box-shadow: 3px 3px darkblue;
   text-align: center;
@@ -88,12 +84,13 @@ body {
 }
 
 .grid2 {
-  display: block;  
+  display: flex; 
+  justify-content: center;
+  flex-direction: row;
   padding-top: 50px;
-  padding-left: 60px;  
-  margin-left: auto;
-  margin-right: auto;
-  width: 53%;
+  padding-left: 3%;
+  margin: auto;  
+  width: 54%;
   height: 40%;
   flex-wrap: wrap;
 }
@@ -129,9 +126,6 @@ body {
 
 .info-area-display {
   display: flex;
-  justify-content: space-between;
-  margin-left: 30%;
-  margin-right: 30%;
 }
 
 #resetBtn {
@@ -139,12 +133,15 @@ body {
   color: orangered;
   padding: 16px;
   border-radius: 10px;
+  font-family: "Bangers", cursive;
   font-size: 20px;
   font-weight: bold;
-  text-transform: uppercase;
+  letter-spacing: 2px;
   cursor: pointer;
   box-shadow: 3px 3px black;
-  margin: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #resetBtn:hover {
@@ -157,24 +154,50 @@ body {
 
 #result-label {
   color: rgb(223, 94, 9);
-  display:inline-block;
   font-size: 40px;
-  font-family: "Bangers", cursive;
   letter-spacing: 2px;
-  margin: 60px 10px 60px 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+#result {
+  color:rgb(247, 251, 7);
+  font-size: 40px;
+  letter-spacing: 2px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 17%;
+}
+
 
 #attempts-label {
   color: rgb(223, 94, 9);
-  display:inline-block;
   font-size: 40px;
   font-family: "Bangers", cursive;
   letter-spacing: 2px;
-  margin: 60px 10px 60px 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+#attempts {
+  color:rgb(247, 251, 7);
+  font-size: 40px;
+  font-family: "Bangers", cursive;
+  letter-spacing: 2px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 8%;
+}
+
+
 #info {
-  font-size: 30px;
+  padding-top: 50px;
+  font-size: 40px;
+  letter-spacing: 2px;
   margin: 0;
   display: flex;
   justify-content: center;
